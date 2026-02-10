@@ -34,6 +34,11 @@ a:hover::after { width:100%; }
 .card:hover { transform:translateY(-6px) scale(1.03); box-shadow:0 20px 50px rgba(88,101,242,0.6); background:linear-gradient(135deg,#5865F2,#3ba55d,#9b6cff); }
 .card .icon { font-size:2.5rem; margin-bottom:0.75rem; display:block; }
 #features, #modules, #dashboard, #docs { background:#1f1f34; margin:2rem auto; max-width:1200px; border-radius:16px; box-shadow:0 12px 36px rgba(0,0,0,0.5); padding-bottom:2rem; }
+.live-counter { margin:1.5rem 0; text-align:center; z-index:2; position:relative; }
+.live-counter #serverCount { font-size:2.2rem; font-weight:900; color:#5865F2; display:block; animation:pulse 2s ease-in-out infinite; }
+.counter-label { font-size:0.95rem; letter-spacing:1px; text-transform:uppercase; color:#ccc; }
+@keyframes pulse { 0%,100%{transform:scale(1);}50%{transform:scale(1.05);} }
+
 footer { text-align:center; padding:2rem; background:#0f0f1f; color:#ccc; font-size:0.9rem; }
 footer a { color:#5865F2; text-decoration:none; font-weight:bold; }
 footer a:hover { text-decoration:underline; }
@@ -55,6 +60,10 @@ footer a:hover { text-decoration:underline; }
   <canvas class="particles"></canvas>
   <h1 class="hero-title">Zipp – The Future of Discord Moderation</h1>
   <p>Take your Discord server management to the next level with Zipp.</p>
+  <div class="live-counter">
+    <span id="serverCount">Loading…</span>
+    <span class="counter-label">Servers Trusting Zipp</span>
+  </div>
   <a class="button primary-button" href="https://discord.com/oauth2/authorize?client_id=1468371727976370439&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank">Invite Zipp</a>
 </section>
 <section id="features" class="page">
@@ -111,6 +120,16 @@ function initCanvas(){w=canvas.width=window.innerWidth;h=canvas.height=canvas.qu
 function draw(){ctx.clearRect(0,0,w,h); particles.forEach(p=>{ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,0.6)';ctx.fill();p.y-=p.speed;if(p.y<0)p.y=h;}); requestAnimationFrame(draw);}
 window.addEventListener('resize',initCanvas);
 initCanvas(); draw();
+// Live server counter (replace URL with your real API endpoint)
+fetch('https://api.zippbot.xyz/servers')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('serverCount').textContent = data.servers.toLocaleString();
+  })
+  .catch(() => {
+    document.getElementById('serverCount').textContent = 'Growing Fast';
+  });
+
 </script>
 </body>
 </html>
