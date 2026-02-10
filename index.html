@@ -34,6 +34,9 @@ a:hover::after { width:100%; }
 .card:hover { transform:translateY(-6px) scale(1.03); box-shadow:0 20px 50px rgba(88,101,242,0.6); background:linear-gradient(135deg,#5865F2,#3ba55d,#9b6cff); }
 .card .icon { font-size:2.5rem; margin-bottom:0.75rem; display:block; }
 #features, #modules, #dashboard, #docs { background:#1f1f34; margin:2rem auto; max-width:1200px; border-radius:16px; box-shadow:0 12px 36px rgba(0,0,0,0.5); padding-bottom:2rem; }
+footer { text-align:center; padding:2rem; background:#0f0f1f; color:#ccc; font-size:0.9rem; }
+footer a { color:#5865F2; text-decoration:none; font-weight:bold; }
+footer a:hover { text-decoration:underline; }
 </style>
 </head>
 <body>
@@ -85,8 +88,12 @@ a:hover::after { width:100%; }
 <section id="docs" class="page">
   <div class="section-title">
     <h2>Documentation</h2>
-    <p>Under Development — Stay Tuned!</p>
+    <p><a href="https://docs.google.com/document/d/1MempACJrh7BpCuA7CCKlpTZlN-35nLj27UdEJHTJCNU/edit?usp=sharing" target="_blank">Terms of Service</a> | <a href="https://docs.google.com/document/d/1EjVLioLESGmre-1Ts78bpDP7LFCYkWbmmNPYhEAHiKE/edit?usp=sharing" target="_blank">Privacy Policy</a></p>
 </section>
+<footer>
+  <p>Join our <a href="https://discord.gg/zmWRZHWtzP" target="_blank">Support Discord</a> for help, updates, and community discussions.</p>
+  <p>&copy; 2026 Zipp. All rights reserved.</p>
+</footer>
 <script>
 // Scroll-triggered card animations
 const observer = new IntersectionObserver(entries => {
