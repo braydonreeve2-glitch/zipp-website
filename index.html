@@ -120,13 +120,19 @@ function draw(){ctx.clearRect(0,0,w,h);particles.forEach(p=>{ctx.beginPath();ctx
 window.addEventListener('resize',initCanvas);
 initCanvas(); draw();
 
-// Live server counter
-fetch('https://api.zippbot.xyz/servers')
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById('serverCount').textContent = data.servers.toLocaleString();
+<script>
+// Live server counter (Vercel API)
+fetch('/api/servers')
+  .then(res => {
+    if (!res.ok) throw new Error('API error');
+    return res.json();
   })
-  .catch(() => {
+  .then(data => {
+    document.getElementById('serverCount').textContent =
+      Number(data.servers).toLocaleString();
+  })
+  .catch(err => {
+    console.error(err);
     document.getElementById('serverCount').textContent = 'Growing Fast';
   });
 </script>
