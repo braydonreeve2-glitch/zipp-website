@@ -1,445 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zipp – The Future of Discord Moderation</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0f1220;
-      --card: #171a2b;
-      --accent: #5865F2;
-      --text: #ffffff;
-      --muted: #b6b9d6;
-      --success: #57f287;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-    }
-
-    body {
-      background: radial-gradient(circle at top, #1b1f3b, var(--bg));
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    header {
-      padding: 6rem 1.5rem 4rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-
-    header p {
-      max-width: 700px;
-      margin: 0 auto 2.5rem;
-      color: var(--muted);
-      font-size: 1.1rem;
-    }
-
-    .cta {
-      display: inline-flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .btn {
-      padding: 0.85rem 1.6rem;
-      border-radius: 10px;
-      border: none;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: white;
-      box-shadow: 0 10px 30px rgba(88,101,242,0.35);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.35);
-    }
-
-    section {
-      padding: 4.5rem 1.5rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .section-title h2 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .section-title p {
-      color: var(--muted);
-      max-width: 600px;
-      margin: auto;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.75rem;
-    }
-
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0));
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 1.75rem;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(88,101,242,0.6);
-    }
-
-    .icon {
-      font-size: 1.8rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .card h3 {
-      margin-bottom: 0.5rem;
-      font-size: 1.2rem;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .highlight {
-      background: linear-gradient(90deg, var(--accent), #7f8cff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .dm-flow {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      text-align: center;
-    }
-
-    .step {
-      background: var(--card);
-      border-radius: 14px;
-      padding: 1.5rem;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    footer {
-      text-align: center;
-      padding: 3rem 1.5rem;
-      color: var(--muted);
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zipp – The Future of Discord Moderation</title>
+<style>
+/* Global Styles */
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin:0; padding:0; background:#f5f5f5; color:#222; }
+header { display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; background:#5865F2; color:white; }
+a { color: inherit; text-decoration:none; }
+a:hover { text-decoration:none; }
+.nav-links a { margin-left:1.5rem; position: relative; }
+a::after { content: ""; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0; background: currentColor; transition: width 0.25s ease; }
+a:hover::after { width: 100%; }
+.page { animation: fadeIn 0.35s ease-in-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity:1; transform: translateY(0); } }
+.hero { display:flex; flex-direction:column; align-items:center; justify-content:center; height:70vh; text-align:center; padding:0 1rem; background:#f5f5f5; }
+.hero-title { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; background: linear-gradient(270deg,#5865F2,#9b6cff,#3ba55d,#5865F2); background-size: 600% 600%; -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation: gradientShift 10s ease infinite, float 4s ease-in-out infinite; margin:0; }
+@keyframes gradientShift { 0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;} }
+@keyframes float {0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+.hero p { font-size:1.25rem; margin-top:1rem; }
+.button, .primary-button { padding:0.75rem 1.5rem; background:#5865F2; color:white; font-weight:bold; border:none; border-radius:6px; cursor:pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; text-decoration:none; display:inline-block; }
+.button:hover, .primary-button:hover { transform:translateY(-4px) scale(1.02); box-shadow:0 12px 30px rgba(0,0,0,0.15); }
+.button:active, .primary-button:active { transform:translateY(-2px) scale(1.01); }
+.section-title { text-align:center; padding:2rem 1rem; }
+.section-title h2 { font-size:2rem; margin-bottom:0.5rem; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:1.5rem; padding:0 2rem 3rem; }
+.card { background:white; padding:1.5rem; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.05); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.card:hover { transform:translateY(-4px) scale(1.02); box-shadow:0 12px 30px rgba(0,0,0,0.15); }
+.card .icon { font-size:2rem; margin-bottom:0.5rem; display:block; }
+.reveal { opacity:0; transform:translateY(20px); animation: reveal 0.6s ease forwards; }
+@keyframes reveal { to { opacity:1; transform:translateY(0); } }
+.hero-bg { position:absolute; top:0; left:0; width:100%; height:100%; z-index:-1; background: linear-gradient(120deg,#5865F2,#3ba55d,#9b6cff,#5865F2); background-size:400% 400%; animation:bgShift 20s linear infinite; opacity:0.08; }
+@keyframes bgShift { 0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;} }
+</style>
 </head>
 <body>
-
 <header>
-  <h1><span class="highlight">Zipp</span> – The Future of Discord Moderation</h1>
-  <p>A next-generation moderation bot built for effortless setup, powerful staff tools, and community-ready automation — right out of the box.</p>
-  <div class="cta">
-    <a href="https://discord.gg/zmWRZHWtzP" class="btn btn-primary">Invite Zipp</a>
-    <a href="#features" class="btn btn-secondary">Learn More</a>
-  </div>
+  <div class="logo">Zipp</div>
+  <nav class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#modules">Modules</a>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#docs">Documentation</a>
+    <a class="primary-button" href="https://discord.com/oauth2/authorize?client_id=1468371727976370439&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank">Add Zipp</a>
+  </nav>
 </header>
-
-<section id="features">
+<section class="hero page">
+  <div class="hero-bg"></div>
+  <h1 class="hero-title">Zipp – The Future of Discord Moderation</h1>
+  <p>Take your Discord server management to the next level with Zipp.</p>
+  <a class="button primary-button" href="https://discord.com/oauth2/authorize?client_id=1468371727976370439&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank">Invite Zipp</a>
+</section>
+<section id="features" class="page reveal">
   <div class="section-title">
-    <h2>Zipp Modules</h2>
-    <p>Powerful, server-ready modules you can enable instantly — no complex setup required.</p>
+    <h2>Zipp Features</h2>
+    <p>Everything you need for moderation, staff management, and community support.</p>
   </div>
-
   <div class="grid">
-    <div class="card">
-      <div class="icon">⚙️</div>
-      <h3>Bot Customization</h3>
-      <p>Customize Zipp’s behavior, appearance, embeds, and responses to match your server’s style and branding.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🛡️</div>
-      <h3>Auto Moderation</h3>
-      <p>Automatically handle spam, filters, rule enforcement, and moderation actions to keep your community safe.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">💬</div>
-      <h3>DM Assistance</h3>
-      <p>Allow members to privately contact staff through DMs for support, suggestions, or bug reports — per server.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">💡</div>
-      <h3>Suggestions</h3>
-      <p>Collect structured suggestions directly from users, routed to staff with confirmation and tracking.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">👋</div>
-      <h3>Welcome Messages</h3>
-      <p>Automatically welcome new members with custom messages or embeds tailored to your server.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">👥</div>
-      <h3>Staff Management</h3>
-      <p>Manage promotions, demotions, infractions, and staff reviews with structured tools built for moderation teams.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🧪</div>
-      <h3>Staff Trials</h3>
-      <p>Run structured staff trials with automatic tracking, pass/fail decisions, and full history logging.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">⌨️</div>
-      <h3>Custom Commands</h3>
-      <p>Create your own commands to automate responses, workflows, or staff actions without extra bots.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🖼️</div>
-      <h3>Custom Messages & Embeds</h3>
-      <p>Design branded messages and embeds for announcements, moderation actions, and system responses.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">📊</div>
-      <h3>Server Dashboard</h3>
-      <p>Manage all modules, settings, and configurations from a centralized server dashboard.</p>
-    </div>
+    <div class="card reveal"><div class="icon">⚙️</div><h3>Bot Customization</h3><p>Tailor Zipp’s behavior, messages, and embeds for your server.</p></div>
+    <div class="card reveal"><div class="icon">🛡️</div><h3>Auto Moderation</h3><p>Enforce rules automatically and keep your server safe and clean.</p></div>
+    <div class="card reveal"><div class="icon">💬</div><h3>DM Assistance</h3><p>Allow members to privately reach staff for support, suggestions, or bug reports.</p></div>
+    <div class="card reveal"><div class="icon">💡</div><h3>Suggestions</h3><p>Collect structured suggestions directly from your members efficiently.</p></div>
+    <div class="card reveal"><div class="icon">👥</div><h3>Staff Management</h3><p>Handle promotions, demotions, infractions, and reviews seamlessly.</p></div>
+    <div class="card reveal"><div class="icon">🧪</div><h3>Staff Trials</h3><p>Run structured staff trials with automatic tracking, pass/fail decisions, and history logs.</p></div>
+    <div class="card reveal"><div class="icon">⌨️</div><h3>Custom Commands</h3><p>Create commands to automate responses or staff actions.</p></div>
+    <div class="card reveal"><div class="icon">🖼️</div><h3>Custom Messages & Embeds</h3><p>Design branded messages and embeds for moderation and announcements.</p></div>
+    <div class="card reveal"><div class="icon">📊</div><h3>Server Dashboard</h3><p>Manage all modules and settings from a centralized interface.</p></div>
   </div>
 </section>
-
-<section>
+<section id="modules" class="page reveal">
   <div class="section-title">
-    <h2>Server-Ready by Default</h2>
-    <p>Zipp is designed to work the moment you enable it.</p>
-  </div>
-
-  <div class="grid">
-    <div class="card">
-      <div class="icon">✅</div>
-      <h3>Instant Setup</h3>
-      <p>Every module comes with smart, server-ready defaults. Enable a module and you’re ready to go immediately.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">🔁</div>
-      <h3>Fully Customizable</h3>
-      <p>Prefer a different setup? Easily edit roles, permissions, messages, and behaviors to fit your server.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">⚡</div>
-      <h3>No Complexity</h3>
-      <p>No long setup processes, no confusing configuration — Zipp adapts to you, not the other way around.</p>
-    </div>
+    <h2>Server-Ready Modules</h2>
+    <p>Enable a module and Zipp is ready to go. Prefer a different setup? Easily customize any default.</p>
   </div>
 </section>
-
-<section>
+<section id="dashboard" class="page reveal">
   <div class="section-title">
-    <h2>DM Assistance Flow</h2>
-    <p>Getting help is simple — just send Zipp a DM.</p>
-  </div>
-
-  <div class="dm-flow">
-    <div class="step">📩 DM Zipp</div>
-    <div class="step">🏠 Choose Your Server</div>
-    <div class="step">🛠️ Select Assistance Type</div>
-    <div class="step">✅ Confirm & Send</div>
-  </div>
+    <h2>Dashboard</h2>
+    <p>Monitor server stats, module status, and configurations in one central hub.</p>
 </section>
-
-<footer>
-  <p>© 2026 Zipp • Built for Discord Communities</p>
-  <p><a href="https://discord.gg/zmWRZHWtzP">Join the Zipp Discord</a></p>
-</footer>
-
+<section id="docs" class="page reveal">
+  <div class="section-title">
+    <h2>Documentation</h2>
+    <p>Under Development — Stay Tuned!</p>
+</section>
+<script>
+// Optional: stagger reveal animation for cards
+const cards = document.querySelectorAll('.card');
+cards.forEach((card, i) => { card.style.animationDelay = (i*0.1)+'s'; });
+</script>
 </body>
 </html>
-
----
-
-## Navigation
-- **Features, Dashboard, Documentation, Modules**: These pages are structured as separate pages. Clicking any of them currently routes to a placeholder page that displays:
-
-> **Under Development — Stay Tuned!**
-
-This keeps the site clean while development continues.
-
-- **Add Zipp**: The primary call-to-action button now links directly to Discord OAuth so servers can add Zipp instantly:
-
-https://discord.com/oauth2/authorize?client_id=1468371727976370439&permissions=8&integration_type=0&scope=bot+applications.commands
-
----
-
-
----
-
-## Smooth Page Transitions
-
-Smooth page transitions are now included to give the site a polished, modern feel even while pages are under development.
-
-### Behavior
-- When clicking any navigation link, the page softly **fades out**, routes, then **fades back in**
-- Works consistently across desktop and mobile
-- Keeps the site feeling complete and intentional
-
-### Implementation (Simple & Lightweight)
-
-**CSS (global):**
-```css
-.page {
-  animation: fadeIn 0.35s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-```
-
-**Usage:**
-Wrap each page’s main content in a container using the `page` class.
-
-This approach avoids heavy libraries, loads instantly, and works perfectly with placeholder pages like **Under Development — Stay Tuned!**
-
----
-
-
-
----
-
-## Visual Enhancements & Animations
-
-The site now includes polished hover effects and a hero animation so it immediately stands out.
-
-### Hover Animations
-
-**Buttons & Cards**
-- Subtle lift on hover
-- Soft shadow expansion
-- Fast, responsive feel without being distracting
-
-```css
-.button, .card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.button:hover, .card:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-}
-```
-
-**Links**
-- Smooth underline slide-in
-- Color shift for clarity
-
-```css
-a {
-  position: relative;
-}
-
-a::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  background: currentColor;
-  transition: width 0.25s ease;
-}
-
-a:hover::after {
-  width: 100%;
-}
-```
-
----
-
-### Hero Title Animation
-
-**“Zipp – The Future of Discord Moderation”** animates in on page load for a strong first impression.
-
-```css
-.hero-title {
-  animation: heroReveal 0.6s ease-out forwards;
-}
-
-@keyframes heroReveal {
-  from {
-    opacity: 0;
-    transform: translateY(12px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-```
-
-Apply the `hero-title` class to the main heading on the homepage.
-
----
-
-### Overall Effect
-- Site feels interactive and modern
-- Clear visual hierarchy
-- Professional, high-quality SaaS look
-
-These animations are lightweight, fast, and compatible with all modern browsers.
-
----
