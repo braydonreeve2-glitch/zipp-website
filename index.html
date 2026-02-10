@@ -187,39 +187,96 @@
 
 <section id="features">
   <div class="section-title">
-    <h2>Why Choose Zipp?</h2>
-    <p>Everything you need to manage your server — without the complexity.</p>
+    <h2>Zipp Modules</h2>
+    <p>Powerful, server-ready modules you can enable instantly — no complex setup required.</p>
   </div>
 
   <div class="grid">
     <div class="card">
-      <div class="icon">👥</div>
-      <h3>Effortless Staff Management</h3>
-      <p>Server-ready staff systems with trials, permissions, and defaults that work instantly with minimal setup.</p>
+      <div class="icon">⚙️</div>
+      <h3>Bot Customization</h3>
+      <p>Customize Zipp’s behavior, appearance, embeds, and responses to match your server’s style and branding.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🛡️</div>
+      <h3>Auto Moderation</h3>
+      <p>Automatically handle spam, filters, rule enforcement, and moderation actions to keep your community safe.</p>
     </div>
 
     <div class="card">
       <div class="icon">💬</div>
-      <h3>Custom DM Assistance</h3>
-      <p>Let users contact staff privately through DMs for support, suggestions, or bug reports — no clutter.</p>
+      <h3>DM Assistance</h3>
+      <p>Allow members to privately contact staff through DMs for support, suggestions, or bug reports — per server.</p>
     </div>
 
     <div class="card">
-      <div class="icon">🔧</div>
-      <h3>Flexible Permissions</h3>
-      <p>Fine-grained control over staff and member access, tailored to your server’s structure.</p>
+      <div class="icon">💡</div>
+      <h3>Suggestions</h3>
+      <p>Collect structured suggestions directly from users, routed to staff with confirmation and tracking.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">👋</div>
+      <h3>Welcome Messages</h3>
+      <p>Automatically welcome new members with custom messages or embeds tailored to your server.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">👥</div>
+      <h3>Staff Management</h3>
+      <p>Manage promotions, demotions, infractions, and staff reviews with structured tools built for moderation teams.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🧪</div>
+      <h3>Staff Trials</h3>
+      <p>Run structured staff trials with automatic tracking, pass/fail decisions, and full history logging.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">⌨️</div>
+      <h3>Custom Commands</h3>
+      <p>Create your own commands to automate responses, workflows, or staff actions without extra bots.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🖼️</div>
+      <h3>Custom Messages & Embeds</h3>
+      <p>Design branded messages and embeds for announcements, moderation actions, and system responses.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">📊</div>
+      <h3>Server Dashboard</h3>
+      <p>Manage all modules, settings, and configurations from a centralized server dashboard.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-title">
+    <h2>Server-Ready by Default</h2>
+    <p>Zipp is designed to work the moment you enable it.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="icon">✅</div>
+      <h3>Instant Setup</h3>
+      <p>Every module comes with smart, server-ready defaults. Enable a module and you’re ready to go immediately.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🔁</div>
+      <h3>Fully Customizable</h3>
+      <p>Prefer a different setup? Easily edit roles, permissions, messages, and behaviors to fit your server.</p>
     </div>
 
     <div class="card">
       <div class="icon">⚡</div>
-      <h3>Smart Automation</h3>
-      <p>Automate moderation tasks, enforce rules consistently, and keep your community organized.</p>
-    </div>
-
-    <div class="card">
-      <div class="icon">💎</div>
-      <h3>Premium‑Ready</h3>
-      <p>Advanced tools and scalable systems designed for both small communities and large servers.</p>
+      <h3>No Complexity</h3>
+      <p>No long setup processes, no confusing configuration — Zipp adapts to you, not the other way around.</p>
     </div>
   </div>
 </section>
@@ -245,3 +302,144 @@
 
 </body>
 </html>
+
+---
+
+## Navigation
+- **Features, Dashboard, Documentation, Modules**: These pages are structured as separate pages. Clicking any of them currently routes to a placeholder page that displays:
+
+> **Under Development — Stay Tuned!**
+
+This keeps the site clean while development continues.
+
+- **Add Zipp**: The primary call-to-action button now links directly to Discord OAuth so servers can add Zipp instantly:
+
+https://discord.com/oauth2/authorize?client_id=1468371727976370439&permissions=8&integration_type=0&scope=bot+applications.commands
+
+---
+
+
+---
+
+## Smooth Page Transitions
+
+Smooth page transitions are now included to give the site a polished, modern feel even while pages are under development.
+
+### Behavior
+- When clicking any navigation link, the page softly **fades out**, routes, then **fades back in**
+- Works consistently across desktop and mobile
+- Keeps the site feeling complete and intentional
+
+### Implementation (Simple & Lightweight)
+
+**CSS (global):**
+```css
+.page {
+  animation: fadeIn 0.35s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+```
+
+**Usage:**
+Wrap each page’s main content in a container using the `page` class.
+
+This approach avoids heavy libraries, loads instantly, and works perfectly with placeholder pages like **Under Development — Stay Tuned!**
+
+---
+
+
+
+---
+
+## Visual Enhancements & Animations
+
+The site now includes polished hover effects and a hero animation so it immediately stands out.
+
+### Hover Animations
+
+**Buttons & Cards**
+- Subtle lift on hover
+- Soft shadow expansion
+- Fast, responsive feel without being distracting
+
+```css
+.button, .card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover, .card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+```
+
+**Links**
+- Smooth underline slide-in
+- Color shift for clarity
+
+```css
+a {
+  position: relative;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: currentColor;
+  transition: width 0.25s ease;
+}
+
+a:hover::after {
+  width: 100%;
+}
+```
+
+---
+
+### Hero Title Animation
+
+**“Zipp – The Future of Discord Moderation”** animates in on page load for a strong first impression.
+
+```css
+.hero-title {
+  animation: heroReveal 0.6s ease-out forwards;
+}
+
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+```
+
+Apply the `hero-title` class to the main heading on the homepage.
+
+---
+
+### Overall Effect
+- Site feels interactive and modern
+- Clear visual hierarchy
+- Professional, high-quality SaaS look
+
+These animations are lightweight, fast, and compatible with all modern browsers.
+
+---
