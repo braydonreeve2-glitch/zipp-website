@@ -18,6 +18,8 @@ body {
 
 /* Custom Cursor */
 /* Custom Cursor */
+<style>
+/* Custom Cursor */
 .cursor {
   width: 18px;
   height: 18px;
@@ -28,9 +30,43 @@ body {
   transform: translate(-50%, -50%);
   transition: transform 0.1s ease-out, background 0.2s ease;
   z-index: 9999;
-  background: rgba(88, 101, 242, 0.2);
-  box-shadow: 0 0 12px rgba(88, 101, 242, 0.8);
+  background: rgba(88,101,242,0.2);
+  box-shadow: 0 0 12px rgba(88,101,242,0.8);
 }
+</style>
+
+<body>
+<div class="cursor" id="cursor"></div>
+
+<script>
+// Cursor tracking
+const cursor = document.getElementById('cursor');
+let mouseX = 0, mouseY = 0;
+let posX = 0, posY = 0;
+let scale = 1;
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+function animateCursor() {
+  // Smoothly move the cursor
+  posX += (mouseX - posX) * 0.15;
+  posY += (mouseY - posY) * 0.15;
+  cursor.style.transform = `translate3d(${posX}px, ${posY}px, 0) scale(${scale})`;
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// Cursor scale on hover
+const hoverElements = document.querySelectorAll('a, .button, .primary-button, .card');
+hoverElements.forEach(el => {
+  el.addEventListener('mouseenter', () => { scale = 1.8; });
+  el.addEventListener('mouseleave', () => { scale = 1; });
+});
+</script>
+
 
 
 /* Header */
