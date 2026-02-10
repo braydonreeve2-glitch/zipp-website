@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zipp – The Future of Discord Moderation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1220;
+      --card: #171a2b;
+      --accent: #5865F2;
+      --text: #ffffff;
+      --muted: #b6b9d6;
+      --success: #57f287;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #1b1f3b, var(--bg));
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 6rem 1.5rem 4rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .cta {
+      display: inline-flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 0.85rem 1.6rem;
+      border-radius: 10px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 10px 30px rgba(88,101,242,0.35);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+    }
+
+    section {
+      padding: 4.5rem 1.5rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 1.75rem;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(88,101,242,0.6);
+    }
+
+    .icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .highlight {
+      background: linear-gradient(90deg, var(--accent), #7f8cff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .dm-flow {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+    }
+
+    .step {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1><span class="highlight">Zipp</span> – The Future of Discord Moderation</h1>
+  <p>A next-generation moderation bot built for effortless setup, powerful staff tools, and community-ready automation — right out of the box.</p>
+  <div class="cta">
+    <a href="https://discord.gg/zmWRZHWtzP" class="btn btn-primary">Invite Zipp</a>
+    <a href="#features" class="btn btn-secondary">Learn More</a>
+  </div>
+</header>
+
+<section id="features">
+  <div class="section-title">
+    <h2>Why Choose Zipp?</h2>
+    <p>Everything you need to manage your server — without the complexity.</p>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="icon">👥</div>
+      <h3>Effortless Staff Management</h3>
+      <p>Server-ready staff systems with trials, permissions, and defaults that work instantly with minimal setup.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">💬</div>
+      <h3>Custom DM Assistance</h3>
+      <p>Let users contact staff privately through DMs for support, suggestions, or bug reports — no clutter.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🔧</div>
+      <h3>Flexible Permissions</h3>
+      <p>Fine-grained control over staff and member access, tailored to your server’s structure.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">⚡</div>
+      <h3>Smart Automation</h3>
+      <p>Automate moderation tasks, enforce rules consistently, and keep your community organized.</p>
+    </div>
+
+    <div class="card">
+      <div class="icon">💎</div>
+      <h3>Premium‑Ready</h3>
+      <p>Advanced tools and scalable systems designed for both small communities and large servers.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-title">
+    <h2>DM Assistance Flow</h2>
+    <p>Getting help is simple — just send Zipp a DM.</p>
+  </div>
+
+  <div class="dm-flow">
+    <div class="step">📩 DM Zipp</div>
+    <div class="step">🏠 Choose Your Server</div>
+    <div class="step">🛠️ Select Assistance Type</div>
+    <div class="step">✅ Confirm & Send</div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Zipp • Built for Discord Communities</p>
+  <p><a href="https://discord.gg/zmWRZHWtzP">Join the Zipp Discord</a></p>
+</footer>
+
+</body>
+</html>
