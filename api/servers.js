@@ -6,12 +6,12 @@ export default async function handler(req, res) {
       }
     });
 
-    if (!response.ok) throw new Error('Failed to fetch server count');
+    if (!response.ok) throw new Error('Bot API error');
 
     const data = await response.json();
 
     res.status(200).json({ servers: data.servers });
-  } catch (error) {
-    res.status(200).json({ servers: 0 }); // fallback
+  } catch (err) {
+    res.status(200).json({ servers: 0 });
   }
 }
